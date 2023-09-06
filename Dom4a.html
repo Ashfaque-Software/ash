@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Leaderboard</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+        #container {
+            width: 300px;
+            margin: 0 auto;
+            text-align: center;
+        }
+        #score {
+            font-size: 24px;
+        }
+    </style>
+</head>
+<body>
+    <div id="container">
+        <h1>Leaderboard</h1>
+        <div id="score">0</div>
+        <div>
+            <button onclick="addToScore(1)">1</button>
+            <button onclick="addToScore(2)">2</button>
+            <button onclick="addToScore(3)">3</button>
+        </div>
+        <div>
+            <button onclick="addToScore(4)">4</button>
+            <button onclick="addToScore(5)">5</button>
+            <button onclick="addToScore(6)">6</button>
+        </div>
+        <div>
+            <button onclick="addToScore(7)">7</button>
+            <button onclick="addToScore(8)">8</button>
+            <button onclick="addToScore(9)">9</button>
+        </div>
+        <button onclick="resetScore()">RESET</button>
+        <button onclick="submitScore()">ENTER</button>
+        <div>
+            <label>MIN: <span id="minScore">0</span></label>
+        </div>
+        <div>
+            <label>MAX: <span id="maxScore">0</span></label>
+        </div>
+    </div>
+
+    <script>
+        var currentScore = '';
+        var minScore = 0;
+        var maxScore = 0;
+
+        function addToScore(number) {
+            currentScore += number;
+            document.getElementById("score").innerHTML = currentScore;
+        }
+
+        function resetScore() {
+            currentScore = '';
+            document.getElementById("score").innerHTML = currentScore;
+        }
+
+        function submitScore() {
+            var score = parseInt(currentScore);
+
+            if (!isNaN(score)) {
+                if (score < minScore || minScore === 0) {
+                    minScore = score;
+                    document.getElementById("minScore").innerHTML = minScore;
+                }
+
+                if (score > maxScore) {
+                    maxScore = score;
+                    document.getElementById("maxScore").innerHTML = maxScore;
+                }
+
+                resetScore();
+            }
+        }
+    </script>
+</body>
+</html>
