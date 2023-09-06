@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dom-3</title>
+    <style>
+       img{
+        width: 300px;
+       }
+    </style>
+</head>
+<body>
+    <img src="">
+    
+    <button id="prev"> < </button>
+    <button id="next"> > </button>
+    
+</body>
+<script>
+    let imageArr=[
+    "https://images-eu.ssl-images-amazon.com/images/G/31/img22/Fashion/Gateway/BAU/BTF-Refresh/May/PF_MF/MF-1-186-116._SY116_CB636110853_.jpg",
+
+    "https://m.media-amazon.com/images/I/71TLIraRESL._AC_SY145_.jpg",
+    "https://images-eu.ssl-images-amazon.com/images/G/31/img22/Baby/cnnjpp1/CC_Rev1x._SY304_CB594433898_.jpg",
+    "https://m.media-amazon.com/images/I/41q0qP1TOgL._AC_SY200_.jpg",
+    ];
+    let image=document.querySelector("img");
+    let prev=document.getElementById("prev");
+    let next=document.getElementById("next");
+    let currentImg=0;
+    image.setAttribute("src",imageArr[currentImg]);
+    prev.addEventListener("click",function()
+    {
+        currentImg--
+        if(currentImg<0)
+        {
+            currentImg=imageArr.length-1;
+        }
+      
+        image.setAttribute("src",imageArr[currentImg]);
+
+    })
+    next.addEventListener("click",function()
+    {
+currentImg++
+if(currentImg>= imageArr.length)
+{
+    currentImg=0;
+}
+
+
+image.setAttribute("src",imageArr[currentImg]);
+    })
+</script>
+</html>
