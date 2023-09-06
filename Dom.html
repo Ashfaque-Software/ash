@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Submit Form</title>
+</head>
+<body>
+    <input type="text" id="myInput" placeholder="Enter text">
+    <button id="myButton">Submit</button>
+    <p id="output"></p>
+
+    <script>
+        // Get references to the input field and button
+        var inputField = document.getElementById("myInput");
+        var submitButton = document.getElementById("myButton");
+        var outputElement = document.getElementById("output");
+
+        // Add a click event listener to the button
+        submitButton.addEventListener("click", function() {
+            // Get the value from the input field
+            var enteredValue = inputField.value;
+
+            // Display an alert with the entered value
+            alert("Entered Value: ashfaque" + enteredValue);
+
+            // Display the entered value below the button
+            outputElement.innerHTML = "Entered Value:ashfaque " + enteredValue;
+        });
+    </script>
+</body>
+</html>
